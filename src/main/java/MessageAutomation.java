@@ -8,8 +8,9 @@ public class MessageAutomation {
         Random random = new Random();
 
         // Array of random words
-        String[] words = {"Hello", "What is your level", "Really interesting","keep grinding","Have a nice day","i want a rifter",
-                "wherea re you from"};
+        String[] words = {"Hello", "What is your level","keep grinding","Have a nice day","i want a rifter",
+                "wherea re you from","Do you know when will be the rumble", "I want rumble so bad", "me too","LFGG","maybe some gartic-bot","Which level is spacewalker",
+        "keep grinding for level 10"};
 
         while (true) {
             // Generate a random word
