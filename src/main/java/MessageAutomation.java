@@ -10,7 +10,7 @@ public class MessageAutomation {
         // Array of random words
         String[] words = {"Hello", "What is your level","keep grinding","Have a nice day","i want a rifter",
                 "wherea re you from","Do you know when will be the rumble", "I want rumble so bad", "me too","LFGG","maybe some gartic-bot","Which level is spacewalker",
-        "keep grinding for level 10","gg","Wormhole is the best"};
+        "keep grinding for level 10","gg","Wormhole is the best","How its going"};
 
         while (true) {
             // Generate a random word
