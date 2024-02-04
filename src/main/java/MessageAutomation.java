@@ -1,33 +1,47 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
+import java.util.Scanner;
 
 public class MessageAutomation {
     public static void main(String[] args) throws AWTException, InterruptedException {
         Robot robot = new Robot();
         Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please provide max time (in milliseconds) for sending a message: ");
+        String maxInput = scanner.nextLine();
+        int maxTime = Integer.parseInt(maxInput);
+        System.out.println("Please provide min time (in milliseconds) for sending a message: ");
+        String minInput = scanner.nextLine();
+        int minTime = Integer.parseInt(maxInput);
+        System.out.println("Enter words separated by spaces:");
 
-        // Array of random words
-        String[] words = {"Hello", "What is your level","keep grinding","Have a nice day","i want a rifter",
-                "wherea re you from","Do you know when will be the rumble", "I want rumble so bad", "me too","LFGG","maybe some gartic-bot","Which level is spacewalker",
-        "keep grinding for level 10","gg","Wormhole is the best","How its going"};
+        // Read words from the user input
+        String userInput = scanner.nextLine();
 
-        while (true) {
-            // Generate a random word
-            String randomWord = words[random.nextInt(words.length)];
+        // Split the input into an array of words
+        String[] words = userInput.split(",");
 
-            // Type the random word
-            typeString(robot, randomWord);
+        // Check if there are words
+        if (words.length > 0) {
+            while (true) {
+                // Get a random word from the provided arguments
+                String randomWord = words[random.nextInt(words.length)];
 
-            // Press Enter to send the message
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
+                // Type the random word
+                typeString(robot, randomWord);
 
-            // Sleep for 1 minute (adjust as needed)
-            Thread.sleep(10000);
+                // Press Enter to send the message
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyRelease(KeyEvent.VK_ENTER);
+
+                // Sleep for 10 seconds
+                Thread.sleep((long) (Math.random()*(maxTime-minTime)+minTime));
+            }
+        } else {
+            System.out.println("Please provide at least one word.");
         }
     }
-
 
     // Function to simulate typing a string
     private static void typeString(Robot robot, String s) {
